@@ -125,7 +125,7 @@
 
 
 //**********************************Making directories
-var fs = require('fs');
+// var fs = require('fs');
 
 //deleting writeA.txt
 // fs.unlink('writeA.txt');
@@ -144,6 +144,21 @@ var fs = require('fs');
 // });
 
 //removing directory with file inside
-fs.unlink('./stuff/newFileInStuffDir.txt', function(){
-    fs.rmdir('stuff');
-});
+// fs.unlink('./stuff/newFileInStuffDir.txt', function(){
+//     fs.rmdir('stuff');
+// });
+
+
+
+//*************************CREATING SERVER**************************88
+// var http = require('http');
+
+// var server = http.createServer(function(req, res){
+//     console.log('request was made: '+req.url);
+//     //response headers
+//     res.writeHead(200,{'Content-type':'text/plain'});
+//     res.end('hey ninjas');
+// });
+
+// server.listen(3000,'127.0.0.1');
+// console.log('now listening to port 3000');
