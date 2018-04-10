@@ -162,3 +162,21 @@
 
 // server.listen(3000,'127.0.0.1');
 // console.log('now listening to port 3000');
+
+
+
+//*************************Strams and buffers***********************
+//Readable stream - allows node.js to read data from stream
+var http = require('http');
+var fs = require('fs');
+
+var myReadStream = fs.createReadStream(__dirname +'/fileA.txt', 'utf8');
+
+myReadStream.on('data', function(chunk){
+    console.log('new chunk received:');
+    myWriteStream.write(chunk);
+    console.log(chunk);
+});
+
+//Writable stream
+var myWriteStream = fs.createWriteStream(__dirname +'/writeMe.txt');
