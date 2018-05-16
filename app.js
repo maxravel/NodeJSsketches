@@ -290,16 +290,38 @@ var express = require('express');
 
 var app = express();
 
+//setting express view engine as ejs
+app.set('view engine', 'ejs');
+
 app.get('/', function(req,res){
-    res.send('this is a homepage');
+    res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/about.html', function(req, res){
-    res.send('hello world');
+app.get('/about', function(req, res){
+    res.sendFile(__dirname + '/about.html');
 });
 
-app.get('/profile/:id', function(req, res){
-    res.send('you requested to see a profile with the id of ' + req.params.id);
+// app.get('/profile/:name', function(req,res){
+//     res.send('You requested to see a profile with the name of '+req.params.name);
+// });
+
+//dynamic - changing parameter in url
+app.get('/profile/:name', function(req, res){
+
+    var data = {
+        age: 29,
+        job: 'programist',
+        favFood: ['burger','potato','chocolate'] 
+    }
+
+    //render connected with view engines
+    res.render('profile', {person: req.params.name, data: data});
 });
 
 app.listen(3000);
+
+
+
+//******************Template Engines
+//--injecting data to pages
+//installing e js -> npm install ejs -save
