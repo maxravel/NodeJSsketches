@@ -293,12 +293,26 @@ var app = express();
 //setting express view engine as ejs
 app.set('view engine', 'ejs');
 
+//middleware for example css styles, imgs
+//first assets is for routing, second is for directory
+app.use('/assets', express.static('assets'));
+
+//this is for classic version without partial template
+// app.get('/', function(req,res){
+//     res.sendFile(__dirname + '/index.html');
+// });
+
+// app.get('/about', function(req, res){
+//     res.sendFile(__dirname + '/about.html');
+// });
+
+//this is new version with partial template
 app.get('/', function(req,res){
-    res.sendFile(__dirname + '/index.html');
+    res.render('index');
 });
 
 app.get('/about', function(req, res){
-    res.sendFile(__dirname + '/about.html');
+    res.render('about');
 });
 
 // app.get('/profile/:name', function(req,res){
