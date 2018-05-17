@@ -315,6 +315,13 @@ app.get('/about', function(req, res){
     res.render('about');
 });
 
+app.get('/contact', function(req, res){
+    //console log query of url like /contact?dept=marketing&name=alf
+    console.log(req.query);
+
+    res.render('contact', {qs: req.query});
+});
+
 // app.get('/profile/:name', function(req,res){
 //     res.send('You requested to see a profile with the name of '+req.params.name);
 // });

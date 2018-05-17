@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include partials/nav.ejs %>
+    <h1>Contact</h1>
+    <p>Some contact form.</p>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <!-- fill empty name and departament inputs with person and department used in url -->
+        <input type="text" name="name" value="<%= qs.person %>"><br>
+        <label for="department">Department:</label>
+        <input type="text" name="department" value="<%= qs.dep %>"><br>
+        <label for="email">Your Mail:</label>
+        <input type="email" name="email"><br>
+        <input type="submit" value="Send"/>
+
+    </form>
+</body>
+</html>
