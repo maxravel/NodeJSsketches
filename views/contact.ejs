@@ -11,7 +11,7 @@
     <%- include partials/nav.ejs %>
     <h1>Contact</h1>
     <p>Some contact form.</p>
-    <form id="contactForm">
+    <form method="POST" action="/contact" id="contactForm">
         <label for="name">Name:</label>
         <!-- fill empty name and departament inputs with person and department used in url -->
         <input type="text" name="name" value="<%= qs.person %>"><br>

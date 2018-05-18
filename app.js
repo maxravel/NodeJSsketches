@@ -287,8 +287,12 @@
 
 //*************************EXPRESS
 var express = require('express');
+//adding body-parses module
+var bodyParser = require('body-parser')
 
 var app = express();
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 //setting express view engine as ejs
 app.set('view engine', 'ejs');
@@ -325,6 +329,13 @@ app.get('/contact', function(req, res){
 // app.get('/profile/:name', function(req,res){
 //     res.send('You requested to see a profile with the name of '+req.params.name);
 // });
+
+//handling post request
+app.post('/contact', urlencodedParser, function(req, res){
+    console.log(req.body);
+    res.render('contact-success', {data: req.body});
+});
+
 
 //dynamic - changing parameter in url
 app.get('/profile/:name', function(req, res){
